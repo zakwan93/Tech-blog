@@ -1,5 +1,9 @@
 <h1 class="text-center mt-4 mb-4"> All Tech Bloggers </h1>
 <hr>
+<h6 class="d-flex justify-content-center pl-2 myPagination">
+	<%= will_paginate @users ,renderer: BootstrapPagination::Rails %>
+</h6>
+
 <center>
 	<% @users.each do |user| %>
 		<div class="card mb-4 mt-4" style="width: 18rem;">
@@ -11,3 +15,8 @@
 		</div>
 	<% end %>
 </center>
+
+
+<h6 class="d-flex justify-content-center pl-2 myPagination">
+	<%= will_paginate @users ,renderer: BootstrapPagination::Rails %>
+</h6>

@@ -8,4 +8,12 @@
 
 <h4 class="text-center"> <%= @user.username %>'s articles </h4>
 
-<%= render "articles/article", obj:@user.articles %>
+<h6 class="d-flex justify-content-center pl-2 myPagination">
+	<%= will_paginate @user_articles ,renderer: BootstrapPagination::Rails %>
+</h6>
+
+<%= render "articles/article", obj: @user_articles %>
+
+<h6 class="d-flex justify-content-center pl-2 myPagination">
+	<%= will_paginate @user_articles ,renderer: BootstrapPagination::Rails %>
+</h6>

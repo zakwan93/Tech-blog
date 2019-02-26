@@ -20,3 +20,11 @@
 .listing{
 	list-style: none;
 }
+
+.myPagination ul li{
+	padding-left: 10px;
+}
+
+/*.myPagination ul li::before{
+	content: "|";
+}*/
