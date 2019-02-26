@@ -1,0 +1,13 @@
+<h1 class="text-center mt-4 mb-4"> All Tech Bloggers </h1>
+<hr>
+<center>
+	<% @users.each do |user| %>
+		<div class="card mb-4 mt-4" style="width: 18rem;">
+			<%= link_to gravatar_for(user), user_path(user), class: "card-img-top mt-3 mb-3" %>
+		  <div class="card-header">
+		    <p class="card-text "><%= link_to user.username, user_path(user) %></p>
+		    <p class="card-text"><%= pluralize(user.articles.count, "article") if user.articles %></p>
+		  </div>
+		</div>
+	<% end %>
+</center>

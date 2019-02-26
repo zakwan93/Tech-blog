@@ -9,19 +9,20 @@
 <% end %>
 
 <%= form_for @article do |f| %>
-	<p>
-		<%= f.label :title %> <br/>
-		<%= f.text_field :title %>
+		<div class="form-group">
+    		<%= f.label :title %>
+    		<%= f.text_field :title, class: "form-control" %>
+  		</div>
 
-	</p>
+  		<div class="form-group">
+    		<%= f.label :deiscription %>
+    		<%= f.text_area :deiscription, class: "form-control" %>
+  		</div>
+  		<div class="form-group">
+  			<%= f.submit(@article.new_record? ? "Create New Artcile" : "Update Article", class: "btn btn-primary btn-lg pt-0 pb-0") %>
+  		</div>
 
-	<p> 
-		<%= f.label :deiscription %><br/>
-		<%= f.text_area :deiscription %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
 <% end %>
 
 <%= link_to "Back to articles listing", articles_path %>
+

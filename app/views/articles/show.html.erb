@@ -1,13 +1,29 @@
-<h1> Showing selected articles </h1>
+<div class="mt-5">
+	<div class="card text-left">
+		<div class="card-header text-center">
+		  <h1> <%= link_to @article.title, article_path(@article), class: "font-weight-bold text-info" %> </h1>
+		  <h6> Created By: <%= @article.user.username if @article.user %> </h6>
+		  <%= link_to(gravatar_for(@article.user), user_path(@article.user), class: "card-img-top mt-3 mb-3") if @article.user %>
+		</div>
+		<div class="card-body">
+		    <!-- <h5 class="card-title">Special title treatment</h5> -->
+		    <p class="card-text"><%= @article.deiscription %></p>
+		    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+		    <div class="article-meta-details mt-4">
+			    <small> 
+			    	<%= time_ago_in_words(@article.created_at) %> ago,
+			    	last update at: <%= time_ago_in_words(@article.updated_at) %> ago
+			    </small>
+			</div>
 
-<p> 
-	Title : <%= @article.title %> 
-</p>
-
-<p> 
-	Description : <%= @article.deiscription %> 
-</p>
-
-<%= link_to "Edit this article", edit_article_path(@article) %> | 
-
-<%= link_to "Back to articles listing", articles_path %>
+		</div>
+		<div class="card-footer">
+		    <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary pt-0 pb-0" %>	
+		    <%= link_to "Delete this article", article_path(@article), method: :delete, 
+		    					data: {confirm: "Are you sure?"},
+		    					class: "btn btn-xs btn-danger pt-0 pb-0" %>
+		    <%= link_to "Back to articles listing", articles_path, class: "btn btn-xs btn-success pt-0 pb-0" %>
+		</div>
+	</div>
+</div>
+<br>
