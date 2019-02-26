@@ -1,0 +1,37 @@
+<p>
+	<%= link_to "Create New Article", new_article_path %> 
+</p>
+
+
+<div class="container w-75">
+	<% obj.each do |article| %>
+		<div class="card text-left">
+  			<div class="card-header">
+			   <%= link_to article.title, article_path(article), class: "font-weight-bold text-info" %>
+			</div>
+			<div class="card-body">
+			    <!-- <h5 class="card-title">Special title treatment</h5> -->
+			    <p class="card-text"><%= article.deiscription %></p>
+			    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+			    <div class="article-meta-details mt-4">
+				    <small> 
+				    	Created By: <%= article.user.username if article.user %>
+				    	<%= time_ago_in_words(article.created_at) %> ago,
+				    	last update at: <%= time_ago_in_words(article.updated_at) %> ago
+				    </small>
+				</div>
+
+			</div>
+			<div class="card-footer">
+			    <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-xs btn-primary pt-0 pb-0" %>	
+			    <%= link_to "Delete this article", article_path(article), method: :delete, 
+			    					data: {confirm: "Are you sure?"},
+			    					class: "btn btn-xs btn-danger pt-0 pb-0" %>
+			</div>
+		</div>
+		<br>
+	<% end %>
+</div>
+
+
+
