@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	before_action: :set_user, only: [:edit, :update, :show] 
+	
+	before_action :set_user, only: [:edit, :update, :show] 
 
 	def index
 		@users = User.paginate(page: params[:page], per_page: 5)
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:username, :email, :password)
 	end
 	def set_user
-		@user = User.new(user_params)
+		@user = User.find(params[:id])
 	end
 
 end
