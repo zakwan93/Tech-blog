@@ -18,7 +18,7 @@
 
 		</div>
 		<div class="card-footer">
-			<% if logged_in? && currunt_user == @article.user %>
+			<% if logged_in? && (currunt_user == @article.user || currunt_user.admin?) %>
 			    <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary pt-0 pb-0" %>	
 			    <%= link_to "Delete this article", article_path(@article), method: :delete, 
 			    					data: {confirm: "Are you sure?"},
