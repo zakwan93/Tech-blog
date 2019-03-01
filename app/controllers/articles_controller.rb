@@ -19,7 +19,6 @@ class ArticlesController < ApplicationController
 		# render plain: params[:article].inspect
 		@article = Article.new(article_params)
 		@article.user = currunt_user
-		# @article.save
 		if @article.save 
 			flash[:notice] = "Article was sucessfully created"
 			redirect_to article_path(@article)
@@ -33,7 +32,6 @@ class ArticlesController < ApplicationController
 	end
 
 	def update 
-
 		if @article.update(article_params)
 			flash[:notice] = "Article was sucessfully updated"
 			redirect_to article_path(@article)
@@ -43,7 +41,6 @@ class ArticlesController < ApplicationController
 	end	
 
 	def destroy
-
 		@article.destroy
 		flash[:notice] = "Artice was successfully deleted"
 		redirect_to articles_path
